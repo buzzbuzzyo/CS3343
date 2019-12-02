@@ -93,7 +93,7 @@ public class ShopSystem {
 	}
 	
 	public Account accountLogin(String id, String password) throws NoSuchAccountException, AccountLoggedInException {
-		if(currentAccount != null) {
+		if(currentAccount == null) {
 			Account account = accountController.searchAccountById(id);
 			if(account != null) {
 				if(!account.login(id, password)) {
