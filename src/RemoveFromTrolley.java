@@ -20,7 +20,6 @@ public class RemoveFromTrolley implements Command{
 				System.out.println("Successfully removed the item from shopping trolley.");
 			}
 		} catch(Exception e) {
-			e.printStackTrace();
 			System.out.println(e.getMessage());
 		}
 		

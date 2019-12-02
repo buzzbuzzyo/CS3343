@@ -92,14 +92,17 @@ public class ShopSystem {
 		this.currentAccount = account;
 	}
 	
-	public Account accountLogin(String id, String password) throws NoSuchAccountException {
-		Account account = accountController.searchAccountById(id);
-		if(account != null) {
-			if(!account.login(id, password)) {
-				account = null;
+	public Account accountLogin(String id, String password) throws NoSuchAccountException, AccountLoggedInException {
+		if(currentAccount != null) {
+			Account account = accountController.searchAccountById(id);
+			if(account != null) {
+				if(!account.login(id, password)) {
+					account = null;
+				}
 			}
+			return account;
 		}
-		return account;
+		throw new AccountLoggedInException(currentAccount.getName());
 	}
 	
 	public boolean accountLogOut() throws AccountIsEmptyException {
@@ -110,22 +113,20 @@ public class ShopSystem {
 		throw new AccountIsEmptyException();
 	}
 	
-	public boolean registerCompany(Company company) {
+	public boolean registerCompany(Company company) throws AccountIsExistingException {
 		if(!accountController.checkExist(company.getUserID())) {
 			accountController.addAccount(company);
-			setCurrentAccount(company);
 			return true;
 		}
-		return false;
+		throw new AccountIsExistingException();
 	}
 	
-	public boolean registerCustomer(Customer customer) {
+	public boolean registerCustomer(Customer customer) throws AccountIsExistingException {
 		if(!accountController.checkExist(customer.getUserID())) {
 			accountController.addAccount(customer);
-			setCurrentAccount(customer);
 			return true;
 		}
-		return false;
+		throw new AccountIsExistingException();
 	}
 	
 	public void showCurrentAccountTrolley() throws AccountIsNotCustomerException,AccountIsEmptyException {
@@ -140,20 +141,15 @@ public class ShopSystem {
 		}
 	}
 	
-	public void showShopProduct(String ShopID) throws AccountIsNotCustomerException,AccountIsEmptyException, NoSuchCompanyException {
+	public void showShopProduct(String ShopID) throws AccountIsNotCustomerException,AccountIsEmptyException, NoSuchCompanyException, NoSuchAccountException {
 		if(currentAccountIsCustomer()) {
-			Account company;
-			try {
-				company = accountController.searchAccountById(ShopID);
-				ArrayList<Product> productList = ((Company) company).getProductList();
-				System.out.println("Shop ID: " + company.getUserID() + ", " + productList.size() + " products in total.");	
-				int count = 1;
-				for (Product p:productList) {
-					System.out.println(count + ". " + p.toString());
-					count++;
-				}
-			} catch (NoSuchAccountException e) {
-				throw new NoSuchCompanyException();
+			Account company = accountController.searchAccountById(ShopID);
+			ArrayList<Product> productList = ((Company) company).getProductList();
+			System.out.println("Shop ID: " + company.getUserID() + ", " + productList.size() + " products in total.");	
+			int count = 1;
+			for (Product p:productList) {
+				System.out.println(count + ". " + p.toString());
+				count++;
 			}
 		}
 	}
@@ -240,8 +236,11 @@ public class ShopSystem {
 		return false;
 	}
 
-	public boolean depositToCurrentAccount(int amount) throws AccountIsEmptyException, AccountIsNotCustomerException {
+	public boolean depositToCurrentAccount(int amount) throws AccountIsEmptyException, AccountIsNotCustomerException, AmountIsNegativeException {
 		if(currentAccountIsCustomer()) {
+			if(amount < 0) {
+				throw new AmountIsNegativeException();
+			}
 			((Customer) currentAccount).deposit(amount);
 			return true;
 		}

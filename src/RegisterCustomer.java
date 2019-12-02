@@ -19,9 +19,9 @@ public class RegisterCustomer implements Command{
 			ShopSystem shopSystem = ShopSystem.getInstance();
 			if(shopSystem.registerCustomer(newCustomer)) {
 				System.out.println("Successfully create Account,  Account name:  "+ newCustomer.getName());
-			} else {
-				System.out.println("The id is existed. Please choose another id.");
 			}
+		} catch (ParseException e) {
+			System.out.println("Wrong format for birth. Please input birthday in dd/MM/yyyy format.");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}  

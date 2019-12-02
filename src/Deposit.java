@@ -13,7 +13,6 @@ public class Deposit implements Command{
 				System.out.println("Successfully added value to your account!");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
 			System.out.println(e.getMessage());
 		}
 		

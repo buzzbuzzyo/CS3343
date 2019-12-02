@@ -10,7 +10,6 @@ public class ShowShopProduct implements Command{
 			ShopSystem shopSystem = ShopSystem.getInstance();
 			shopSystem.showShopProduct(cmdParts[1]);
 		} catch (Exception e) {
-			e.printStackTrace();
 			System.out.println(e.getMessage());
 		}
 	}

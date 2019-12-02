@@ -7,7 +7,6 @@ public class ShowTrolley implements Command{
 		try {
 			shopSystem.showCurrentAccountTrolley(); 
 		} catch (Exception e) {
-			e.printStackTrace();
 			System.out.print(e.getMessage());
 		}
 	}

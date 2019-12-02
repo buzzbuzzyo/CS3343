@@ -14,11 +14,7 @@ public class RegisterCompany implements Command{
 			if(shopSystem.registerCompany(newCompany)) {
 				System.out.println("Successfully create an account, account name: " + newCompany.getName());
 			}
-			else {
-				System.out.println("The id is existed. Please choose another id.");
-			}
 		} catch (Exception e) {
-			e.printStackTrace();
 			System.out.println(e.getMessage());
 		}
 		

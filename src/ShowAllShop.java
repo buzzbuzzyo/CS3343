@@ -7,7 +7,6 @@ public class ShowAllShop implements Command {
 		ShopSystem shopSystem = ShopSystem.getInstance();
 		shopSystem.showAllShop();
 		} catch (Exception e) {
-			e.printStackTrace();
 			System.out.println(e.getMessage());
 		}
 	}
