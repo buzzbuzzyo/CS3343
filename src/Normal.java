@@ -10,6 +10,10 @@ public class Normal implements Membership{
 	public double getDiscount() {
 		return 1.0;
 	}
+	
+	public String toString() {
+		return "Normal";
+	}
 
 	
 }

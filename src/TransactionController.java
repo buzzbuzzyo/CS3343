@@ -55,7 +55,7 @@ public class TransactionController {
 			company.recordTransaction(customer, item);
 		}
 	}
-	
+ 	
 	public void updateStockStatus(ArrayList<TrolleyItem> itemList) {
 		for (TrolleyItem item: itemList) {
 			Product product = item.getProduct();
