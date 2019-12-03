@@ -111,50 +111,51 @@ public class Main {
         while(running) {
         	System.out.print("Please input your cmd: ");
         	String cmdLine = scanner.nextLine();
-        	String[] cmdParts = cmdLine.split(" ");
-        	switch(cmdParts[0]) {
-        		case "regCompany":
-        			(new RegisterCompany()).execute(cmdParts);
-        			break;
-        		case "regCustomer":
-        			(new RegisterCustomer()).execute(cmdParts);
-        			break;
-        		case "login":
-        			(new LoginAccount()).execute(cmdParts);
-        			break;
-        		case "logout":
-        			(new LogoutAccount()).execute(cmdParts);
-        			break;
-        		case "showAllShop":
-        			(new ShowAllShop()).execute(cmdParts);
-        			break;
-        		case "showShopProduct":
-        			(new ShowShopProduct()).execute(cmdParts);
-        			break;
-        		case "createProduct":
-        			(new CreateProduct()).execute(cmdParts);
-        			break;
-        		case "addToTrolley":
-        			(new AddToTrolley()).execute(cmdParts);
-        			break;
-        		case "removeFromTrolley":
-        			(new RemoveFromTrolley()).execute(cmdParts);
-        			break;
-        		case "showTrolley":
-        			(new ShowTrolley()).execute(cmdParts);
-        			break;
-        		case "deposit":
-        			(new Deposit()).execute(cmdParts);
-        			break;
-        		case "checkout":
-        			(new Checkout()).execute(cmdParts);
-        			break;
-        		default:
-        			System.out.println("Invalid input.");
-        	}
+        	runOperation(cmdLine);
         }
-        
-        
     }
 	
+	public static void runOperation(String cmdLine) {
+		String[] cmdParts = cmdLine.split(" ");
+    	switch(cmdParts[0]) {
+    		case "regCompany":
+    			(new RegisterCompany()).execute(cmdParts);
+    			break;
+    		case "regCustomer":
+    			(new RegisterCustomer()).execute(cmdParts);
+    			break;
+    		case "login":
+    			(new LoginAccount()).execute(cmdParts);
+    			break;
+    		case "logout":
+    			(new LogoutAccount()).execute(cmdParts);
+    			break;
+    		case "showAllShop":
+    			(new ShowAllShop()).execute(cmdParts);
+    			break;
+    		case "showShopProduct":
+    			(new ShowShopProduct()).execute(cmdParts);
+    			break;
+    		case "createProduct":
+    			(new CreateProduct()).execute(cmdParts);
+    			break;
+    		case "addToTrolley":
+    			(new AddToTrolley()).execute(cmdParts);
+    			break;
+    		case "removeFromTrolley":
+    			(new RemoveFromTrolley()).execute(cmdParts);
+    			break;
+    		case "showTrolley":
+    			(new ShowTrolley()).execute(cmdParts);
+    			break;
+    		case "deposit":
+    			(new Deposit()).execute(cmdParts);
+    			break;
+    		case "checkout":
+    			(new Checkout()).execute(cmdParts);
+    			break;
+    		default:
+    			System.out.println("Invalid input.");
+    	}
+	}
 }
