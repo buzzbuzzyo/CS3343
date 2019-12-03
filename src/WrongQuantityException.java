@@ -9,9 +9,5 @@ public class WrongQuantityException extends Exception {
 	public WrongQuantityException() {
 		super("Wrong quantity");
 	}
-	
-	public WrongQuantityException(String message) {
-		super(message);
-	}
 
 }

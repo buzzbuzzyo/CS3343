@@ -9,9 +9,5 @@ public class AccountIsNotCustomerException extends Exception{
 	public AccountIsNotCustomerException() {
 		super("please login your customer account.");
 	}
-	
-	public AccountIsNotCustomerException(String message) {
-		super(message);
-	}
 
 }

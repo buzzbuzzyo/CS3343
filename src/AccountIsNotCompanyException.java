@@ -9,9 +9,5 @@ public class AccountIsNotCompanyException extends Exception{
 	public AccountIsNotCompanyException() {
 		super("please login your company account.");
 	}
-	
-	public AccountIsNotCompanyException(String message) {
-		super(message);
-	}
 
 }

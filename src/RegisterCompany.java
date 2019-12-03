@@ -11,9 +11,8 @@ public class RegisterCompany implements Command{
 			String name = cmdParts[3];
 			Company newCompany = new Company(id, password, name);
 			ShopSystem shopSystem = ShopSystem.getInstance();
-			if(shopSystem.registerCompany(newCompany)) {
-				System.out.println("Successfully create an account, account name: " + newCompany.getName());
-			}
+			shopSystem.registerCompany(newCompany);
+			System.out.println("Successfully create an account, account name: " + newCompany.getName());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

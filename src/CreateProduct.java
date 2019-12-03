@@ -12,9 +12,8 @@ public class CreateProduct implements Command{
 			double productPrice = Double.parseDouble(cmdParts[3]);
 			int productStock = Integer.parseInt(cmdParts[4]);
 			
-			if(shopSystem.createProductForCompany(productName, productPrice, productStock)) {
-				System.out.println("Successfully create the product.");
-			}
+			shopSystem.createProductForCompany(productName, productPrice, productStock);
+			System.out.println("Successfully create the product.");
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

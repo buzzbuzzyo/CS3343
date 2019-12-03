@@ -5,8 +5,4 @@ public class AccountIsExistingException extends Exception {
 		super("This id is existing. Please choose another id.");
 	}
 	
-	public AccountIsExistingException(String message) {
-		super(message);
-	}
-
 }

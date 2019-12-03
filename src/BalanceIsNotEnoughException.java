@@ -10,7 +10,4 @@ public class BalanceIsNotEnoughException extends Exception {
 		super("The balance is not enough to complete the payment!");
 	}
 	
-	public BalanceIsNotEnoughException(String message) {
-		super(message);
-	}
 }

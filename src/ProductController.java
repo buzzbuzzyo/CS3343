@@ -15,13 +15,4 @@ public class ProductController {
 		return product;
 		
 	}
-	
-	public void createProductForCompany(Company c, Product p) {
-		c.addProduct(p);
-		pidCounter++;
-	}
-	
-	public void substractPid(int n) {
-		pidCounter = pidCounter - n;
-	}
 }

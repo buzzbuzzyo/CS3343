@@ -10,8 +10,4 @@ public class NoItemInShoppingTrolleyException extends Exception {
 		super("No items in shopping trolley.");
 	}
 	
-	public NoItemInShoppingTrolleyException(String message) {
-		super(message);
-	}
-
 }

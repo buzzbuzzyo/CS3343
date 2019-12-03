@@ -8,8 +8,4 @@ public class AccountIsEmptyException extends Exception {
 	public AccountIsEmptyException() {
 		super("There is no account login.");
 	}
-	
-	public AccountIsEmptyException(String message) {
-		super(message);
-	}
 }
