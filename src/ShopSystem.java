@@ -95,26 +95,22 @@ public class ShopSystem {
 		} 
 	}
 	
-	public boolean addItemToCustomerTrolley(Product product, int quantity, Company company) throws AccountIsEmptyException, AccountIsNotCustomerException {
+	public void addItemToCustomerTrolley(Product product, int quantity, Company company) throws AccountIsEmptyException, AccountIsNotCustomerException {
 		if(currentAccountIsCustomer()) {
 			ArrayList<TrolleyItem> customerTrolley = ((Customer) currentAccount).getTrolley();
 			for (TrolleyItem item:customerTrolley) {
 				if(item.getProduct().equals(product)) {
 					item.addQuantity(quantity);
 					((Customer) currentAccount).setTrolley(customerTrolley);
-					return true;
 				}
-
-
 			}
 			customerTrolley.add(new TrolleyItem(product, quantity, company));
 			((Customer) currentAccount).setTrolley(customerTrolley);
-			return true;
+			
 		}
-		return false;
 	}
 	
-	public boolean removeItemFromTrolley(Product product, int quantity) throws WrongQuantityException, AccountIsEmptyException, AccountIsNotCustomerException {
+	public void removeItemFromTrolley(Product product, int quantity) throws WrongQuantityException, AccountIsEmptyException, AccountIsNotCustomerException {
 		if(currentAccountIsCustomer()) {
 			ArrayList<TrolleyItem> customerTrolley = ((Customer) currentAccount).getTrolley();
 			for (TrolleyItem item : customerTrolley) {
@@ -122,20 +118,16 @@ public class ShopSystem {
 					if(item.getQuantity() == quantity) {
 						customerTrolley.remove(item);
 						((Customer) currentAccount).setTrolley(customerTrolley);
-						return true;
 					}else if(item.getQuantity() > quantity)
 					{
 						int newAmount = item.getQuantity() - quantity;
 						item.changeQuantity(newAmount);
 						((Customer) currentAccount).setTrolley(customerTrolley);
-						return true;
 					}else
 						throw new WrongQuantityException();
 				}
 			}
 		}
-		return false;
-			
 	}
 	
 	public Company searchCompanyById(String company) throws NoSuchCompanyException, NoSuchAccountException {
@@ -169,19 +161,18 @@ public class ShopSystem {
 	public boolean createProductForCompany(String productName, double productPrice, int productStock) throws AccountIsEmptyException, AccountIsNotCompanyException {
 		if(currentAccountIsCompany()) {
 			productController.createProductForCompany(currentAccount, productName, productPrice, productStock);
+			return true;
 		}
 		return false;
 	}
 
-	public boolean depositToCurrentAccount(int amount) throws AccountIsEmptyException, AccountIsNotCustomerException, AmountIsNegativeException {
+	public void depositToCurrentAccount(int amount) throws AccountIsEmptyException, AccountIsNotCustomerException, AmountIsNegativeException {
 		if(currentAccountIsCustomer()) {
 			if(amount < 0) {
 				throw new AmountIsNegativeException();
 			}
 			((Customer) currentAccount).deposit(amount);
-			return true;
 		}
-		return false;
 	}
 	
 	public boolean checkout() throws BalanceIsNotEnoughException, NoItemInShoppingTrolleyException, AccountIsEmptyException, AccountIsNotCustomerException {

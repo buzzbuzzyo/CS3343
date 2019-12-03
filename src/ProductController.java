@@ -1,4 +1,3 @@
-import java.util.ArrayList ;
 
 public class ProductController {
 	//start from 10000

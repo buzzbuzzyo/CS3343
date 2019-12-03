@@ -12,9 +12,8 @@ public class AddToTrolley implements Command{
 			int quantity = Integer.parseInt(cmdParts[3]);
 			Company company = shopSystem.searchCompanyById(cmdParts[1]);
 			Product product = shopSystem.searchProductInCompany(company, Integer.parseInt(cmdParts[2]));
-			if(shopSystem.addItemToCustomerTrolley(product, quantity, company)) {
-				System.out.println("Item successfully added to your trolley.");
-			}
+			shopSystem.addItemToCustomerTrolley(product, quantity, company);
+			System.out.println("Item successfully added to your trolley.");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

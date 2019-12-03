@@ -15,7 +15,6 @@ public class Customer extends Account{
 		this.shoppingTrolley = new ArrayList<TrolleyItem>();
 		this.member = Normal.getInstance();
 		
-		System.out.print(isBirthdayToday());
 	}
 	public Membership getMembership() {
 		return member;

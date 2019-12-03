@@ -16,9 +16,8 @@ public class RemoveFromTrolley implements Command{
 			company = shopSystem.searchCompanyById(cmdParts[1]);
 			product = shopSystem.searchProductInCompany(company,Integer.parseInt(cmdParts[2]));
 			quantity = Integer.parseInt(cmdParts[3]);
-			if(shopSystem.removeItemFromTrolley(product, quantity)) {
-				System.out.println("Successfully removed the item from shopping trolley.");
-			}
+			shopSystem.removeItemFromTrolley(product, quantity);
+			System.out.println("Successfully removed the item from shopping trolley.");
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
