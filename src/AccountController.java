@@ -52,6 +52,18 @@ public class AccountController {
 	public void setAccountMap(HashMap<String, Account> accountMap) {
 		this.accountMap = accountMap;
 	}
-
+	
+	public void upgradeMembership(Customer customer, double amount) {
+		Membership member = customer.getMembership();
+		if(!(member instanceof Platinum)) {
+			if(amount >= 4000) {
+				customer.setMembership(Platinum.getInstance());
+			}else if(amount >= 2000) {
+				customer.setMembership(Gold.getInstance());
+			}else if(amount >= 1000) {
+				customer.setMembership(Sliver.getInstance());
+			}
+		}
+	}
 
 }

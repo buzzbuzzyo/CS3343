@@ -68,5 +68,14 @@ public class Customer extends Account{
 	public void setTrolley(ArrayList<TrolleyItem> shoppingTrolley) {
 		this.shoppingTrolley = shoppingTrolley;
 	}
+	public void setMembership(Membership member) {
+		this.member = member;
+		
+	}
+	public void emptyTrolley() {
+		shoppingTrolley.clear();
+		
+	}
+	
 	
 }

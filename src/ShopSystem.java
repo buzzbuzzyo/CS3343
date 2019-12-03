@@ -102,6 +102,7 @@ public class ShopSystem {
 				if(item.getProduct().equals(product)) {
 					item.addQuantity(quantity);
 					((Customer) currentAccount).setTrolley(customerTrolley);
+					return;
 				}
 			}
 			customerTrolley.add(new TrolleyItem(product, quantity, company));
@@ -177,10 +178,15 @@ public class ShopSystem {
 	
 	public boolean checkout() throws BalanceIsNotEnoughException, NoItemInShoppingTrolleyException, AccountIsEmptyException, AccountIsNotCustomerException {
 		if(currentAccountIsCustomer()) {
-			transactionController.completeTransaction((Customer) currentAccount);
+			double amount = transactionController.completeTransaction((Customer) currentAccount);
+			upgradeMembership((Customer) currentAccount, amount);
 			return true;
 		}
 		return false;
+	}
+	
+	public void upgradeMembership(Customer customer, double amount) {
+		accountController.upgradeMembership(customer,amount);
 	}
 
 }

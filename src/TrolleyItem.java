@@ -23,7 +23,7 @@ public class TrolleyItem {
 	}
 	
 	public String toString() {
-		return product.getName() + "(" + product.getPid() + ")*" + quantity; 
+		return product.getName() + "(" + product.getPid() + ")   $" + product.getPrice() + "*" + quantity + "   $" + (product.getPrice()*quantity); 
 	}
 	
 	public Product getProduct() {
