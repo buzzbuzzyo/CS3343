@@ -13,7 +13,7 @@ public class RegisterCustomer implements Command{
 			String id = cmdParts[1];
 			String pw = cmdParts[2];
 			String name = cmdParts[3];
-			Date birthday = new SimpleDateFormat("dd/MM/yyyy").parse(cmdParts[4]);
+			Date birthday = new SimpleDateFormat("yyyy/MM/dd").parse(cmdParts[4]);
 			double balance = Double.parseDouble(cmdParts[5]);
 			Customer newCustomer = new Customer(id, pw, name, birthday, balance);
 			ShopSystem shopSystem = ShopSystem.getInstance();

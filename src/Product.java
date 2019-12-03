@@ -3,7 +3,6 @@ public class Product {
 	private int pid;
 	private String name;
 	private double price;
-	private ProductDiscount pDiscount;
 	private int stock;
 	
 	public Product(int pid, String name, double price, int stock) {
@@ -33,4 +32,7 @@ public class Product {
 		return price;
 	}
 	
+	public void soldProduct(int number) {
+		stock -= number;
+	}
 }

@@ -16,7 +16,7 @@ showAllShop
 showShopProduct cityu
 
 3. Add products of a shop to the shopping trolley: 'addToTrolley userId(shopId) pid quantity'
-addToTrolley cityu 10200 10
+addToTrolley cityu 10000 10
 
 4. Show shopping trolley item:
 showTrolley

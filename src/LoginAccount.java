@@ -10,9 +10,8 @@ public class LoginAccount implements Command{
 			String password = cmdParts[2];
 			ShopSystem shopSystem = ShopSystem.getInstance();
 			Account account = shopSystem.accountLogin(id, password);
-			if (account != null) {
-				System.out.println("Successfully login, Welcome " + account.getName() + "!");
-			}
+			System.out.println("Successfully login, Welcome " + account.getName() + "!");
+			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

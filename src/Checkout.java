@@ -10,6 +10,7 @@ public class Checkout implements Command{
 			}
 			
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.out.println(e.getMessage());
 		}
 		

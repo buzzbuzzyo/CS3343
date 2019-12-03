@@ -1,16 +1,24 @@
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Customer extends Account{
 	private double balance;
 	private Date birthday;  
 	private ArrayList<TrolleyItem> shoppingTrolley;
+	private Membership member;
 	
-	public Customer(String uID, String pw, String n, Date bd, double b) {
-		super(uID, pw, n);
-		birthday = bd;
-		balance = b;
-		shoppingTrolley = new ArrayList<TrolleyItem>();
+	public Customer(String userID, String password, String name, Date birthday, double balance) {
+		super(userID, password, name);
+		this.birthday = birthday;
+		this.balance = balance;
+		this.shoppingTrolley = new ArrayList<TrolleyItem>();
+		this.member = Normal.getInstance();
+		
+		System.out.print(isBirthdayToday());
+	}
+	public Membership getMembership() {
+		return member;
 	}
 	
 	public String getName() {
@@ -19,6 +27,17 @@ public class Customer extends Account{
 	
 	public double getBalance() {
 		return balance;
+	}
+	
+	public boolean isBirthdayToday() {
+		Date today = new Date();
+		Calendar calendar = Calendar.getInstance();
+		Calendar bday = Calendar.getInstance();
+		calendar.setTime(today);
+		bday.setTime(birthday);
+		
+		return (calendar.get(Calendar.MONTH) == bday.get(Calendar.MONTH)) &&  (calendar.get(Calendar.DAY_OF_MONTH) == bday.get(Calendar.DAY_OF_MONTH));
+		
 	}
 
 	@Override
