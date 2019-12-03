@@ -10,4 +10,8 @@ public class Platinum implements Membership{
 		return 0.85;
 	}
 	
+	public String toString() {
+		return "Platinum";
+	}
+	
 }

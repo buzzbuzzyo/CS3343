@@ -10,4 +10,8 @@ public class Sliver implements Membership{
 		return 0.95;
 	}
 	
+	public String toString() {
+		return "Sliver";
+	}
+
 }

@@ -10,4 +10,8 @@ public class Gold implements Membership{
 		return 0.90;
 	}
 	
+	public String toString() {
+		return "Gold";
+	}
+	
 }
