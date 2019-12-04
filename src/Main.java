@@ -149,6 +149,9 @@ public class Main {
         		case "checkout":
         			(new Checkout()).execute(cmdParts);
         			break;
+        		case "showSaleRecord":
+        			(new ShowSaleRecord()).execute(cmdParts);
+        			break;
         		default:
         			System.out.println("Invalid input.");
         	}

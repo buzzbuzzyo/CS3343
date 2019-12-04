@@ -1,4 +1,4 @@
-The following commands are for the program.
+------------------------        Program Commands for Registration    --------------------
 1. Register Company Account: 'register company userid password companyname'
 regCompany cityu 1234 cityu 
 

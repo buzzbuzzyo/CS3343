@@ -5,11 +5,13 @@ public class SaleRecord {
 	private Customer customer;
 	private TrolleyItem item;
 	private Date date;
+	private double totalAmount;
 	
-	public SaleRecord(Customer customer, TrolleyItem item) {
+	public SaleRecord(Customer customer, TrolleyItem item, double totalAmount) {
 		this.customer = customer;
 		this.item = item;
 		date = new Date();
+		this.totalAmount = totalAmount;
 	}
 	
 	public String toString() {
@@ -18,6 +20,6 @@ public class SaleRecord {
 	    int quantity = item.getQuantity();
 	    Product product = item.getProduct();
 	    
-		return strDate + " " + customer.getName() + ": " + product.getName() + "(" + product.getPid() + ")*" + quantity; 
+		return strDate + " " + product.getName() + "*" + quantity +  " " + customer.getName() + " ($" + totalAmount + " in total)";
 	}
 }

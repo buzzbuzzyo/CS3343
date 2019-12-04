@@ -111,23 +111,18 @@ public class ShopSystem {
 		}
 	}
 	
-	public void removeItemFromTrolley(Product product, int quantity) throws WrongQuantityException, AccountIsEmptyException, AccountIsNotCustomerException {
+	public void removeItemFromTrolley(int pid, int quantity) throws WrongQuantityException, AccountIsEmptyException, AccountIsNotCustomerException, NoSuchProductException {
+		
 		if(currentAccountIsCustomer()) {
-			ArrayList<TrolleyItem> customerTrolley = ((Customer) currentAccount).getTrolley();
-			for (TrolleyItem item : customerTrolley) {
-				if(item.getProduct().equals(product)) {
-					if(item.getQuantity() == quantity) {
-						customerTrolley.remove(item);
-						((Customer) currentAccount).setTrolley(customerTrolley);
-					}else if(item.getQuantity() > quantity)
-					{
-						int newAmount = item.getQuantity() - quantity;
-						item.changeQuantity(newAmount);
-						((Customer) currentAccount).setTrolley(customerTrolley);
-					}else
-						throw new WrongQuantityException();
-				}
-			}
+			TrolleyItem customerItem = ((Customer)currentAccount).searchTrolleyByPid(pid);
+
+			if(customerItem.getQuantity() > quantity) {
+				customerItem.subQuantity(quantity);
+			}else if(customerItem.getQuantity() == quantity) {
+				((Customer)currentAccount).removeTrolleyItem(customerItem);
+			}else
+				throw new WrongQuantityException();
+			
 		}
 	}
 	
@@ -187,6 +182,13 @@ public class ShopSystem {
 	
 	public void upgradeMembership(Customer customer, double amount) {
 		accountController.upgradeMembership(customer,amount);
+	}
+
+	public void showSaleRecord() throws AccountIsEmptyException, AccountIsNotCompanyException {
+		if(currentAccountIsCompany()) {
+			((Company)currentAccount).showSaleRecord();
+		}
+		
 	}
 
 }

@@ -25,7 +25,7 @@ public class TransactionController {
 		}
 		
 		customer.withdraw(totalAmount);
-		recordTransaction(customer, itemList);
+		recordTransaction(customer, itemList, totalAmount);
 		updateStockStatus(itemList);
 
 		
@@ -56,10 +56,10 @@ public class TransactionController {
 		return membership.getDiscount()*amount;
 	}
 	
-	public void recordTransaction(Customer customer, ArrayList<TrolleyItem> itemList) {
+	public void recordTransaction(Customer customer, ArrayList<TrolleyItem> itemList, double totalAmount) {
 		for (TrolleyItem item: itemList) {
 			Company company = item.getCompany();
-			company.recordTransaction(customer, item);
+			company.recordTransaction(customer, item, totalAmount);
 		}
 	}
  	

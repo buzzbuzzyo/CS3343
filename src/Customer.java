@@ -76,6 +76,17 @@ public class Customer extends Account{
 		shoppingTrolley.clear();
 		
 	}
+	public TrolleyItem searchTrolleyByPid(int pid) throws NoSuchProductException {
+		for (TrolleyItem item: shoppingTrolley) {
+			if(item.getProduct().getPid() == pid)
+				return item;
+		}
+		throw new NoSuchProductException("No Such Product in shopping trolley.");
+	}
+	public void removeTrolleyItem(TrolleyItem customerItem) {
+		shoppingTrolley.remove(customerItem);
+		
+	}
 	
 	
 }
