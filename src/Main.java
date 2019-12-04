@@ -91,6 +91,9 @@ public class Main {
     		case "checkout":
     			(new Checkout()).execute(cmdParts);
     			break;
+    		case "showSaleRecord":
+    			(new ShowSaleRecord()).execute(cmdParts);
+    			break;
     		case "showStatus":
     			(new ShowStatus()).execute(cmdParts);
     			break;

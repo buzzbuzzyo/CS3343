@@ -32,7 +32,7 @@ public class Company extends Account{
 	
 	@Override
 	public String toString() {
-		return super.getName() + " - " + productList.size() + " item(s) in total.";
+		return super.getName() + "(ID: " + super.getUserID() +  ") - " + productList.size() + " item(s) in total.";
 	}
 	
 	public void recordTransaction(Customer customer, TrolleyItem item, double totalAmount) {
