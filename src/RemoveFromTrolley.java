@@ -9,14 +9,13 @@ public class RemoveFromTrolley implements Command{
 	@Override
 	public void execute(String[] cmdParts) {
 		try {
-			if(cmdParts.length < 4) {
+			if(cmdParts.length < 3) {
 				throw new InsufficientParameterException();
 			}
+			int pid = Integer.parseInt(cmdParts[1]);
+			int quantity = Integer.parseInt(cmdParts[2]);
 			ShopSystem shopSystem = ShopSystem.getInstance();
-			company = shopSystem.searchCompanyById(cmdParts[1]);
-			product = shopSystem.searchProductInCompany(company,Integer.parseInt(cmdParts[2]));
-			quantity = Integer.parseInt(cmdParts[3]);
-			shopSystem.removeItemFromTrolley(product, quantity);
+			shopSystem.removeItemFromTrolley(pid, quantity);
 			System.out.println("Successfully removed the item from shopping trolley.");
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
