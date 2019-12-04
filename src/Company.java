@@ -47,4 +47,12 @@ public class Company extends Account{
 			
 		}
 	}
+
+	public boolean checkExistProduct(Product product) {
+		if(productList.contains(product)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 }
