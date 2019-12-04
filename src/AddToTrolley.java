@@ -1,11 +1,11 @@
 
-public class AddToTrolley implements Command{
+public class AddToTrolley implements Command {
 
 	@Override
 	public void execute(String[] cmdParts) {
 
 		try {
-			if(cmdParts.length < 4) {
+			if (cmdParts.length < 4) {
 				throw new InsufficientParameterException();
 			}
 			ShopSystem shopSystem = ShopSystem.getInstance();

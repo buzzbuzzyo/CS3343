@@ -1,22 +1,22 @@
 
 public class ProductController {
-	//start from 10000
+	// start from 10000
 	private int pidCounter = 10000;
 	private static ProductController instance = new ProductController();
-	
 
 	public static ProductController getInstance() {
 		return instance;
 	}
-	
+
 	public Product createProductForCompany(Account currentAccount, String name, double price, int stock) {
-		Product product = new Product(pidCounter++,name,price,stock);
+		Product product = new Product(pidCounter++, name, price, stock);
 		((Company) currentAccount).addProduct(product);
 		return product;
-		
+
 	}
 
-	public void fillProductForCompany(Company currentAccount, int productID, int quantity) throws NoSuchProductException {
+	public void fillProductForCompany(Company currentAccount, int productID, int quantity)
+			throws NoSuchProductException {
 		Product product = currentAccount.searchProductByPid(productID);
 		product.addStock(quantity);
 	}

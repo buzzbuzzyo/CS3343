@@ -1,10 +1,10 @@
 
-public class Deposit implements Command{
-	
+public class Deposit implements Command {
+
 	@Override
 	public void execute(String[] cmdParts) {
 		try {
-			if(cmdParts.length < 2) {
+			if (cmdParts.length < 2) {
 				throw new InsufficientParameterException();
 			}
 			ShopSystem shopSystem = ShopSystem.getInstance();
@@ -14,7 +14,6 @@ public class Deposit implements Command{
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
 
 	}
 

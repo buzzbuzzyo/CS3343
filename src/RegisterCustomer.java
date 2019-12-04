@@ -2,12 +2,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class RegisterCustomer implements Command{
-	
+public class RegisterCustomer implements Command {
+
 	@Override
 	public void execute(String[] cmdParts) {
 		try {
-			if(cmdParts.length < 6) {
+			if (cmdParts.length < 6) {
 				throw new InsufficientParameterException();
 			}
 			String id = cmdParts[1];
@@ -18,13 +18,13 @@ public class RegisterCustomer implements Command{
 			Customer newCustomer = new Customer(id, pw, name, birthday, balance);
 			ShopSystem shopSystem = ShopSystem.getInstance();
 			shopSystem.registerCustomer(newCustomer);
-			System.out.println("Successfully create Account,  Account name:  "+ newCustomer.getName());
+			System.out.println("Successfully create Account,  Account name:  " + newCustomer.getName());
 		} catch (ParseException e) {
 			System.out.println("Wrong format for birth. Please input birthday in yyyy/MM/dd format.");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		}  
-		
+		}
+
 	}
 
 }

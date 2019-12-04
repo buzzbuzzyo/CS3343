@@ -1,6 +1,6 @@
 
-public class AccountIsNotCompanyException extends Exception{
-	
+public class AccountIsNotCompanyException extends Exception {
+
 	/**
 	 * 
 	 */

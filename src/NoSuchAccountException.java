@@ -1,6 +1,6 @@
 
 public class NoSuchAccountException extends Exception {
-	
+
 	/**
 	 * 
 	 */
@@ -9,5 +9,5 @@ public class NoSuchAccountException extends Exception {
 	public NoSuchAccountException() {
 		super("Account not found! Check your userID and password!");
 	}
-	
+
 }

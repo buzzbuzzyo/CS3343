@@ -1,6 +1,5 @@
 
-
-public class RemoveFromTrolley implements Command{
+public class RemoveFromTrolley implements Command {
 	Company company;
 	Product product;
 	int quantity;
@@ -9,7 +8,7 @@ public class RemoveFromTrolley implements Command{
 	@Override
 	public void execute(String[] cmdParts) {
 		try {
-			if(cmdParts.length < 3) {
+			if (cmdParts.length < 3) {
 				throw new InsufficientParameterException();
 			}
 			int pid = Integer.parseInt(cmdParts[1]);
@@ -17,10 +16,10 @@ public class RemoveFromTrolley implements Command{
 			ShopSystem shopSystem = ShopSystem.getInstance();
 			shopSystem.removeItemFromTrolley(pid, quantity);
 			System.out.println("Successfully removed the item from shopping trolley.");
-		} catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 	}
 
 }

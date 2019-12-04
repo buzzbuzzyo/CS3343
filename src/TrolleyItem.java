@@ -9,35 +9,36 @@ public class TrolleyItem {
 		this.quantity = quantity;
 		this.company = company;
 	}
-	
+
 	public void changeQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	
+
 	public void addQuantity(int quantity) {
-		this.quantity += quantity; 
+		this.quantity += quantity;
 	}
 
 	public void subQuantity(int quantity) {
-		this.quantity -= quantity; 
+		this.quantity -= quantity;
 	}
-	
+
 	public String toString() {
-		return product.getName() + "(" + product.getPid() + ")   $" + product.getPrice() + "*" + quantity + "   $" + (product.getPrice()*quantity); 
+		return product.getName() + "(" + product.getPid() + ")   $" + product.getPrice() + "*" + quantity + "   $"
+				+ (product.getPrice() * quantity);
 	}
-	
+
 	public Product getProduct() {
 		return this.product;
 	}
-	
+
 	public int getQuantity() {
 		return this.quantity;
 	}
-	
+
 	public double getTotal() {
-		return product.getPrice()*quantity;
+		return product.getPrice() * quantity;
 	}
-	
+
 	public Company getCompany() {
 		return company;
 	}

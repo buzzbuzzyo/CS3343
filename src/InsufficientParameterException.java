@@ -1,6 +1,6 @@
 
 public class InsufficientParameterException extends Exception {
-	
+
 	/**
 	 * 
 	 */
@@ -9,5 +9,5 @@ public class InsufficientParameterException extends Exception {
 	public InsufficientParameterException() {
 		super("Insufficient parameter!");
 	}
-	
+
 }

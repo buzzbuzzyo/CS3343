@@ -1,17 +1,18 @@
 
-public class Platinum implements Membership{
+public class Platinum implements Membership {
 	private static Platinum instance = new Platinum();
-	
+
 	public static Platinum getInstance() {
 		return instance;
 	}
+
 	@Override
 	public double getDiscount() {
 		return 0.85;
 	}
-	
+
 	public String toString() {
 		return "Platinum";
 	}
-	
+
 }

@@ -1,9 +1,9 @@
-public class RegisterCompany implements Command{
-	
+public class RegisterCompany implements Command {
+
 	@Override
 	public void execute(String[] cmdParts) {
 		try {
-			if(cmdParts.length < 4) {
+			if (cmdParts.length < 4) {
 				throw new InsufficientParameterException();
 			}
 			String id = cmdParts[1];
@@ -16,7 +16,7 @@ public class RegisterCompany implements Command{
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 	}
 
 }
