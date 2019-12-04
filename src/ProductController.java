@@ -15,4 +15,9 @@ public class ProductController {
 		return product;
 		
 	}
+
+	public void fillProductForCompany(Company currentAccount, int productID, int quantity) throws NoSuchProductException {
+		Product product = currentAccount.searchProductByPid(productID);
+		product.addStock(quantity);
+	}
 }

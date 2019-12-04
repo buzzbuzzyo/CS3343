@@ -151,6 +151,9 @@ public class Main {
     		case "deposit":
     			(new Deposit()).execute(cmdParts);
     			break;
+    		case "fill":
+    			(new FillProduct()).execute(cmdParts);
+    			break;
     		case "checkout":
     			(new Checkout()).execute(cmdParts);
     			break;

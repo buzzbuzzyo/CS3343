@@ -182,4 +182,10 @@ public class ShopSystem {
 		accountController.upgradeMembership(customer,amount);
 	}
 
+	public void fillProductForCompany(int productID, int quantity) throws AccountIsEmptyException, AccountIsNotCompanyException, NoSuchProductException {
+		if(currentAccountIsCompany()) {
+			productController.fillProductForCompany((Company) currentAccount, productID, quantity);
+		}
+	}
+
 }

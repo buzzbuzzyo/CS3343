@@ -30,28 +30,27 @@ deposit 500
 7. Checkout:
 checkout
 
+8. Logout:
+logout
+
 ------------------------          For Company Login Function        --------------------
-1. Add product: 'createProduct userid productName price stock'
-createProduct cityu apple 5 500
+1. Add product: 'createProduct productName price stock'
+createProduct apple 5 500
 
 2. Show stock status: 
 showStatus
 
 3. Remove product: 'removeProduct productID'
-remove ae001
+remove 10000
 
 4. fill product: 'fill productID quantity'
-fill ae001 300
+fill 10000 300
 
 5. show sells record:
 showSales
 
-6. Edit Description: "editDescription#Description"
-editDescription#This is new shop.
-
-7. checkout:
-checkout
-
+6. Logout:
+logout
 
 -------------------------    1/12/2019  ---------------------------------
 Done:
