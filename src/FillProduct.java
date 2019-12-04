@@ -14,7 +14,7 @@ public class FillProduct implements Command {
 				throw new AmountIsNegativeException();
 			}
 			shopSystem.fillProductForCompany(productID, quantity);
-			System.out.printf("Successfully fill the product #s with quantity of #s. \n", productID, quantity);
+			System.out.printf("Successfully fill the product %s with quantity of %s. \n", productID, quantity);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

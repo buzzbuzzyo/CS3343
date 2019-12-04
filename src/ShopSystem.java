@@ -46,15 +46,17 @@ public class ShopSystem {
 	public void registerCompany(Company company) throws AccountIsExistingException {
 		if(!accountController.checkExist(company.getUserID())) {
 			accountController.addAccount(company);
+		}else{
+			throw new AccountIsExistingException();
 		}
-		throw new AccountIsExistingException();
 	}
 	
 	public void registerCustomer(Customer customer) throws AccountIsExistingException {
 		if(!accountController.checkExist(customer.getUserID())) {
 			accountController.addAccount(customer);
+		}else {
+			throw new AccountIsExistingException();
 		}
-		throw new AccountIsExistingException();
 	}
 	
 	public void showCurrentAccountTrolley() throws AccountIsNotCustomerException,AccountIsEmptyException {

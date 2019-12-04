@@ -20,7 +20,7 @@ public class RegisterCustomer implements Command{
 			shopSystem.registerCustomer(newCustomer);
 			System.out.println("Successfully create Account,  Account name:  "+ newCustomer.getName());
 		} catch (ParseException e) {
-			System.out.println("Wrong format for birth. Please input birthday in dd/MM/yyyy format.");
+			System.out.println("Wrong format for birth. Please input birthday in yyyy/MM/dd format.");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}  
