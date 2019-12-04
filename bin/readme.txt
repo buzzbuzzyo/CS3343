@@ -34,8 +34,8 @@ checkout
 logout
 
 ------------------------          For Company Login Function        --------------------
-1. Add product: 'createProduct userid productName price stock'
-createProduct cityu apple 5 500
+1. Add product: 'createProduct productName price stock'
+createProduct apple 5 500
 
 2. Show stock status: 
 showStatus
