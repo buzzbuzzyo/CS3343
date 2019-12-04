@@ -39,8 +39,9 @@ public class ShopSystem {
 	public void accountLogOut() throws AccountIsEmptyException {
 		if(currentAccount != null) {
 			setCurrentAccount(null);
+		} else {
+			throw new AccountIsEmptyException();
 		}
-		throw new AccountIsEmptyException();
 	}
 	
 	public void registerCompany(Company company) throws AccountIsExistingException {

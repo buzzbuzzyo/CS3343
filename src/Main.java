@@ -8,7 +8,7 @@ public class Main {
 		System.out.println("Hello, this is city shopper!");
 		System.out.println("Testing version: 1.0");
 		
-		//***********************     FOR DEVELOPER TESTING!     ******************************
+		/*/***********************     FOR DEVELOPER TESTING!     ******************************
 		runOperation("regCompany cityu 1234 cityu");
 		runOperation("login cityu 1234");
 		runOperation("regCompany cityu 1234 cityu");
@@ -34,7 +34,7 @@ public class Main {
 		runOperation("login tkleung 1234");
 		runOperation("addToTrolley cityu 10001 10");
 		runOperation("checkout");
-		//***********************     FOR DEVELOPER TESTING!     ******************************
+		//***********************     FOR DEVELOPER TESTING!     ******************************/
 		
         while(running) {
         	System.out.print("Please input your cmd: ");
@@ -45,10 +45,10 @@ public class Main {
         
 	public static void runOperation(String cmdLine) {
 		
-		//***********************     FOR DEVELOPER TESTING!     ******************************
+		/************************     FOR DEVELOPER TESTING!     ******************************
 		System.out.println("************************************");
 		System.out.println(cmdLine);
-		//***********************     FOR DEVELOPER TESTING!     ******************************
+		//***********************     FOR DEVELOPER TESTING!     ******************************/
 		
 		String[] cmdParts = cmdLine.split(" ");
     	switch(cmdParts[0]) {
