@@ -10,12 +10,15 @@ public class TransactionController {
 	
 	public double completeTransaction(Customer customer) throws BalanceIsNotEnoughException, NoItemInShoppingTrolleyException {
 		ArrayList<TrolleyItem> itemList = customer.getTrolley();
-		itemList.forEach(item->{
+		itemList.removeIf(item->{
 			Company itemCompany = item.getCompany();
 			Product itemProduct = item.getProduct();
 			if(!itemCompany.checkExistProduct(itemProduct)) {
-				itemList.remove(item);
 				System.out.printf("%s has been sold out. Automatically removed.\n",itemProduct.getName());
+				return true;
+			}
+			else {
+				return false;
 			}
 		});
 		double totalAmount = calculateProductAmount(itemList, customer);

@@ -201,4 +201,11 @@ public class ShopSystem {
 			});
 		}
 	}
+
+	public void removeProductFromCompany(int productID) throws AccountIsEmptyException, AccountIsNotCompanyException, NoSuchProductException {
+		if(currentAccountIsCompany()) {
+			Product product = ((Company) currentAccount).searchProductByPid(productID);
+			((Company) currentAccount).removeProduct(product);
+		}
+	}
 }
