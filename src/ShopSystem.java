@@ -191,4 +191,14 @@ public class ShopSystem {
 		}
 		
 	}
+
+	public void showStatus() throws AccountIsEmptyException, AccountIsNotCompanyException {
+		if(currentAccountIsCompany()) {
+			ArrayList<Product> productList = ((Company) currentAccount).getProductList();
+			System.out.println("------------------ Stock Status ------------------");
+			productList.forEach(product->{
+				System.out.println(product);
+			});
+		}
+	}
 }

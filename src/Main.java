@@ -59,6 +59,9 @@ public class Main {
     		case "showSaleRecord":
     			(new ShowSaleRecord()).execute(cmdParts);
     			break;
+    		case "showStatus":
+    			(new ShowStatus()).execute(cmdParts);
+    			break;
     		default:
     			System.out.println("Invalid input.");
     	}
