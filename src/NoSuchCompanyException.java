@@ -10,7 +10,4 @@ public class NoSuchCompanyException extends Exception {
 		super("No such company! Please use showAllShop command to see all existing shop!");
 	}
 	
-	public NoSuchCompanyException(String message) {
-		super(message);
-	}
 }

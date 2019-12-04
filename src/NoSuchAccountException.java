@@ -10,7 +10,4 @@ public class NoSuchAccountException extends Exception {
 		super("Account not found! Check your userID and password!");
 	}
 	
-	public NoSuchAccountException(String message) {
-		super(message);
-	}
 }

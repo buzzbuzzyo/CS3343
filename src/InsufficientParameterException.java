@@ -10,8 +10,4 @@ public class InsufficientParameterException extends Exception {
 		super("Insufficient parameter!");
 	}
 	
-	public InsufficientParameterException(String message) {
-		super(message);
-	}
-
 }

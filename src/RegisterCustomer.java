@@ -17,9 +17,8 @@ public class RegisterCustomer implements Command{
 			double balance = Double.parseDouble(cmdParts[5]);
 			Customer newCustomer = new Customer(id, pw, name, birthday, balance);
 			ShopSystem shopSystem = ShopSystem.getInstance();
-			if(shopSystem.registerCustomer(newCustomer)) {
-				System.out.println("Successfully create Account,  Account name:  "+ newCustomer.getName());
-			}
+			shopSystem.registerCustomer(newCustomer);
+			System.out.println("Successfully create Account,  Account name:  "+ newCustomer.getName());
 		} catch (ParseException e) {
 			System.out.println("Wrong format for birth. Please input birthday in dd/MM/yyyy format.");
 		} catch (Exception e) {
