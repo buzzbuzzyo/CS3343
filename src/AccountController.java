@@ -16,14 +16,6 @@ public class AccountController {
 		});
 	}
 
-	public void listAllCustomer() {
-		accountMap.forEach((id, account) -> {
-			if (account instanceof Customer) {
-				System.out.println(account.toString());
-			}
-		});
-	}
-
 	public void addAccount(Account account) {
 		accountMap.put(account.getUserID(), account);
 	}
