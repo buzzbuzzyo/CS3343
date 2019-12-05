@@ -2,7 +2,7 @@
 1. Register Company Account: 'register company userid password companyname'
 regCompany cityu 1234 cityu 
 
-2. Register Customer Account: 'register customer userid password name dateOfBirth firstDeposit'
+2. Register Customer Account: 'register customer userid password name dateOfBirth firstDeposit' (dateOfBirth must be in format yyyy/mm/dd)
 regCustomer tkleung 1234 Sam 2019/11/28 500
 
 3. Login Account: 'login username password'

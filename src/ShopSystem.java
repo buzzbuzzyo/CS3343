@@ -46,20 +46,29 @@ public class ShopSystem {
 		}
 	}
 
-	public void registerCompany(Company company) throws AccountIsExistingException {
-		if (!accountController.checkExist(company.getUserID())) {
-			accountController.addAccount(company);
+	public void registerCompany(Company company) throws AccountIsExistingException, AccountLoggedInException {
+		if (currentAccount == null) {
+			if (!accountController.checkExist(company.getUserID())) {
+				accountController.addAccount(company);
+			} else {
+				throw new AccountIsExistingException();
+			}
 		} else {
-			throw new AccountIsExistingException();
+			throw new AccountLoggedInException(currentAccount.getName());
 		}
 	}
 
-	public void registerCustomer(Customer customer) throws AccountIsExistingException {
-		if (!accountController.checkExist(customer.getUserID())) {
-			accountController.addAccount(customer);
+	public void registerCustomer(Customer customer) throws AccountIsExistingException, AccountLoggedInException {
+		if (currentAccount== null) {
+			if (!accountController.checkExist(customer.getUserID())) {
+				accountController.addAccount(customer);
+			} else {
+				throw new AccountIsExistingException();
+			}
 		} else {
-			throw new AccountIsExistingException();
+			throw new AccountLoggedInException(currentAccount.getName());
 		}
+
 	}
 
 	public void showCurrentAccountTrolley() throws AccountIsNotCustomerException, AccountIsEmptyException {

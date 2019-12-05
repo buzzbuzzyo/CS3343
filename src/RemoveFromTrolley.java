@@ -1,9 +1,5 @@
 
 public class RemoveFromTrolley implements Command {
-	Company company;
-	Product product;
-	int quantity;
-	Account user;
 
 	@Override
 	public void execute(String[] cmdParts) {
