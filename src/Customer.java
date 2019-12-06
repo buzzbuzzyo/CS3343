@@ -54,7 +54,6 @@ public class Customer extends Account {
 		balance -= amount;
 	}
 
-	// yoyo 1130
 	public Date getBirthday() {
 		return birthday;
 	}

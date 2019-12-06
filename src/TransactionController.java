@@ -53,7 +53,8 @@ public class TransactionController {
 			if (customer.isBirthdayToday()) {
 				totalAmount *= birthdayDiscount;
 			}
-			company.recordTransaction(customer, item, totalAmount);
+			SaleRecord saleRecord = new SaleRecord(customer,item,totalAmount);
+			company.recordTransaction(saleRecord);
 		}
 	}
 

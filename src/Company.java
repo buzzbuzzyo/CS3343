@@ -35,8 +35,8 @@ public class Company extends Account {
 		return super.getName() + "(ID: " + super.getUserID() + ") - " + productList.size() + " item(s) in total.";
 	}
 
-	public void recordTransaction(Customer customer, TrolleyItem item, double totalAmount) {
-		saleRecordList.add(new SaleRecord(customer, item, totalAmount));
+	public void recordTransaction(SaleRecord saleRecord) {
+		saleRecordList.add(saleRecord);
 
 	}
 
