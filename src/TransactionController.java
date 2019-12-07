@@ -21,17 +21,18 @@ public class TransactionController {
 				return false;
 			}
 		});
-		double totalAmount = calculateProductAmount(itemList, customer);
 		Membership membership = customer.getMembership();
+		boolean isBirthdayToday = customer.isBirthdayToday();
+		double totalAmount = calculateProductAmount(itemList, membership,isBirthdayToday);
 		if (customer.getBalance() < totalAmount)
 			throw new BalanceIsNotEnoughException();
 		if (itemList.isEmpty()) {
 			throw new NoItemInShoppingTrolleyException();
 		}
 		customer.withdraw(totalAmount);
-		recordTransaction(customer, itemList);
+		recordTransaction(customer, itemList,membership,isBirthdayToday);
 		updateStockStatus(itemList);
-		if (customer.isBirthdayToday()) {
+		if (isBirthdayToday) {
 			System.out
 					.println("You are enjoying your birthday discount! " + (100 - birthdayDiscount * 100) + " % off!");
 		}
@@ -45,12 +46,11 @@ public class TransactionController {
 		return totalAmount;
 	}
 
-	private void recordTransaction(Customer customer, ArrayList<TrolleyItem> itemList) {
-		Membership membership = customer.getMembership();
+	private void recordTransaction(Customer customer, ArrayList<TrolleyItem> itemList,Membership membership,boolean isBirthdayToday) {
 		for (TrolleyItem item : itemList) {
 			Company company = item.getCompany();
 			double totalAmount = item.getTotal() * membership.getDiscount();
-			if (customer.isBirthdayToday()) {
+			if (isBirthdayToday) {
 				totalAmount *= birthdayDiscount;
 			}
 			SaleRecord saleRecord = new SaleRecord(customer,item,totalAmount);
@@ -58,13 +58,12 @@ public class TransactionController {
 		}
 	}
 
-	public double calculateProductAmount(ArrayList<TrolleyItem> itemList, Customer customer) {
+	public double calculateProductAmount(ArrayList<TrolleyItem> itemList, Membership membership,boolean isBirthdayToday) {
 		double totalAmount = 0;
 		for (TrolleyItem item : itemList) {
 			totalAmount += item.getTotal();
 		}
-		Membership membership = customer.getMembership();
-		if (customer.isBirthdayToday()) {
+		if (isBirthdayToday) {
 			totalAmount *= birthdayDiscount;
 		}
 		return membership.getDiscount() * totalAmount;
