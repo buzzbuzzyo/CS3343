@@ -39,7 +39,7 @@ createProduct apple 5 500
 2. Show stock status: 
 showStatus
 
-3. Remove product: 'removeProduct productID'
+3. Remove product: 'remove productID'
 remove 10000
 
 4. fill product: 'fill productID quantity'

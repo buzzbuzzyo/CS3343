@@ -116,13 +116,10 @@ public class ShopSystem {
 			for (TrolleyItem item : customerTrolley) {
 				if (item.getProduct().equals(product)) {
 					item.addQuantity(quantity);
-					((Customer) currentAccount).setTrolley(customerTrolley);
 					return;
 				}
 			}
 			customerTrolley.add(new TrolleyItem(product, quantity, company));
-			((Customer) currentAccount).setTrolley(customerTrolley);
-
 		}
 	}
 
