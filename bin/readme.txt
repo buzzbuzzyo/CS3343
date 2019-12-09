@@ -1,3 +1,31 @@
+Readme
+=================================================================
+=================================================================
+CityShopper
+=================================================================
+=================================================================
+
+
+---------------------               Description                 ---------------------
+This application is a trading platform for both customers and companies.
+
+---------------------               Installation                 ---------------------
+  1. Install the latest Java SE Runtime Environment 
+        -You can get it from here - http://www.oracle.com/technetwork/java/javase/downloads/index.html
+  2. Ensure you have setup the path for java
+        -You can take a look of this if your environment have not setup - https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html
+
+Windows
+----
+  3. Double Click the file ．cityShopper.bat・
+
+Mac or Linux Environment
+----  
+  3. Open the terminal and input ．java -jar {file_path}/cityShopper.jar・
+
+file_path = the location of the file
+
+
 ------------------------        Program Commands for Registration    --------------------
 1. Register Company Account: 'register company userid password companyname'
 regCompany cityu 1234 cityu 
@@ -47,3 +75,18 @@ fill 10000 300
 
 5. show sale records 'showSaleRecord'
 showSaleRecord
+
+
+------------------------------              Credits                 -----------------
+
+<< Credits >>
+
+Project Manager: Leung Tsz Kin
+Assistant Project Manager: Leung Ching Yin
+Software Engineer: Sin Tak Yiu
+Software Engineer: Wong Ho Ming
+
+----------------------------------------------------------------
+
+<<End>>
+
