@@ -78,15 +78,12 @@ showSaleRecord
 
 
 ------------------------------              Credits                 -----------------
-
-<< Credits >>
-
 Project Manager: Leung Tsz Kin
 Assistant Project Manager: Leung Ching Yin
 Software Engineer: Sin Tak Yiu
 Software Engineer: Wong Ho Ming
 
-----------------------------------------------------------------
+-------------------------------------        End             ---------------------------
 
-<<End>>
+
 
